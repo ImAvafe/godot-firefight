@@ -6,6 +6,8 @@ var trees = []
 
 
 func _ready() -> void:
+	$TreesSpawners.hide()
+
 	spawn_trees()
 
 

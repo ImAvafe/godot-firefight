@@ -1,9 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://caefhs80wkbsg"]
-
-[ext_resource type="Script" path="res://scenes/tree_spawner/tree_spawner.gd" id="1_yrfl2"]
+[gd_scene format=3 uid="uid://caefhs80wkbsg"]
 
 [node name="TreeSpawner" type="Node2D"]
-script = ExtResource("1_yrfl2")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 8
