@@ -147,9 +147,8 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hduc7"]
 size = Vector2(32, 48)
 
-[node name="Fireball" type="RigidBody2D"]
-gravity_scale = 0.0
-contact_monitor = true
+[node name="Fireball" type="Area2D"]
+collision_layer = 2
 script = ExtResource("1_p6x0p")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

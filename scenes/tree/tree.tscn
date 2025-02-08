@@ -275,9 +275,7 @@ animations = [{
 "speed": 20.0
 }]
 
-[node name="Tree" type="RigidBody2D"]
-gravity_scale = 0.0
-contact_monitor = true
+[node name="Tree" type="Area2D"]
 script = ExtResource("1_ladh1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -29,3 +29,12 @@ func despawn_trees():
 		tree_instance.queue_free()
 
 	trees = []
+
+
+func get_trees():
+	var trees2 = []
+
+	for child in $Trees.get_children():
+		trees2.append(child)
+
+	return trees2
