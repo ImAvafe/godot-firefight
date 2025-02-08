@@ -38,12 +38,14 @@ func perish():
 	burning = false
 	smoke()
 
-	var tween = get_tree().create_tween()
-	tween.tween_property($Sprite2D, "scale", Vector2.ZERO, 0.2)
-	tween.tween_callback(func():
-		queue_free()
+	get_tree().create_timer(0.15).timeout.connect(func():
+		var tween = get_tree().create_tween()
+		tween.tween_property($Sprite2D, "scale", Vector2.ZERO, 0.1)
+		tween.tween_callback(func():
+			queue_free()
+		)
+		tween.play()
 	)
-	tween.play()
 
 
 func extinguish():
