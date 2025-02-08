@@ -23,7 +23,6 @@ config/icon="res://assets/branding/icon.svg"
 window/size/viewport_width=1024
 window/size/viewport_height=1024
 window/stretch/mode="viewport"
-window/vsync/vsync_mode=0
 window/defaults/default_clear_color=Color(0.284339, 0.000411422, 0.798572, 1)
 
 [rendering]
