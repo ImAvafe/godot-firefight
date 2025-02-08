@@ -8,8 +8,6 @@ var trees = []
 func _ready() -> void:
 	$TreesSpawners.hide()
 
-	spawn_trees()
-
 
 func _process(_delta: float) -> void:
 	pass
