@@ -7,8 +7,6 @@ extends Node2D
 
 
 func _ready() -> void:
-	burning = randi() % 3 == 2
-
 	$BurnTimer.timeout.connect(func():
 		perish()
 	)
@@ -33,12 +31,13 @@ func smoke():
 	$Sprite2D/Smoke.visible = true
 	$Sprite2D/Smoke.play()
 
+	return get_tree().create_timer(0.15)
+
 
 func perish():
 	burning = false
-	smoke()
 
-	get_tree().create_timer(0.15).timeout.connect(func():
+	smoke().timeout.connect(func():
 		var tween = get_tree().create_tween()
 		tween.tween_property($Sprite2D, "scale", Vector2.ZERO, 0.1)
 		tween.tween_callback(func():
@@ -50,4 +49,7 @@ func perish():
 
 func extinguish():
 	burning = false
-	smoke()
+
+	smoke().timeout.connect(func():
+		pass
+	)

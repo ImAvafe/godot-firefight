@@ -1,11 +1,31 @@
 extends Node
 
+const tree = preload("res://scenes/tree/tree.tscn")
 
-# Called when the node enters the scene tree for the first time.
+var trees = []
+
+
 func _ready() -> void:
+	spawn_trees()
+
+
+func _process(_delta: float) -> void:
 	pass
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_add_constant_forcedelta: float) -> void:
-	pass
+func spawn_trees():
+	for pos in $TreesSpawners.get_used_cells():
+		var global_pos = $TreesSpawners.map_to_local(pos)
+		
+		var tree_instance = tree.instantiate()
+		tree_instance.position = global_pos
+		$Trees.add_child(tree_instance)
+
+		trees.append(tree_instance)
+
+
+func despawn_trees():
+	for tree_instance in trees:
+		tree_instance.queue_free()
+
+	trees = []
