@@ -1,8 +1,7 @@
-[gd_scene load_steps=11 format=4 uid="uid://brhu6j8ggn773"]
+[gd_scene load_steps=8 format=4 uid="uid://brhu6j8ggn773"]
 
 [ext_resource type="Script" path="res://scenes/map/map.gd" id="1_c70pt"]
 [ext_resource type="Texture2D" uid="uid://biqu61wkn817x" path="res://assets/img/tiles/map.png" id="1_dsojl"]
-[ext_resource type="PackedScene" uid="uid://dr7g74p2evpqv" path="res://scenes/tree/tree.tscn" id="3_gxya6"]
 [ext_resource type="PackedScene" uid="uid://caefhs80wkbsg" path="res://scenes/tree_spawner/tree_spawner.tscn" id="4_xy2ia"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ctmoe"]
@@ -770,14 +769,6 @@ scenes/1/scene = ExtResource("4_xy2ia")
 tile_size = Vector2i(64, 64)
 sources/1 = SubResource("TileSetScenesCollectionSource_fck22")
 
-[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_nect1"]
-resource_name = "trees"
-scenes/1/scene = ExtResource("3_gxya6")
-
-[sub_resource type="TileSet" id="TileSet_2q2vq"]
-tile_size = Vector2i(64, 64)
-sources/0 = SubResource("TileSetScenesCollectionSource_nect1")
-
 [node name="Map" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -806,4 +797,3 @@ tile_map_data = PackedByteArray("AAAEAAQAAQAAAAAAAQAEAAUAAQAAAAAAAQAEAAYAAQAAAAA
 tile_set = SubResource("TileSet_rmmvy")
 
 [node name="Trees" type="TileMapLayer" parent="."]
-tile_set = SubResource("TileSet_2q2vq")

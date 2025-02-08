@@ -1,9 +1,11 @@
-[gd_scene load_steps=43 format=3 uid="uid://dr7g74p2evpqv"]
+[gd_scene load_steps=44 format=3 uid="uid://dr7g74p2evpqv"]
 
 [ext_resource type="Script" path="res://scenes/tree/tree.gd" id="1_ladh1"]
 [ext_resource type="Texture2D" uid="uid://iptcxmal3cfy" path="res://assets/img/sprites/trees.png" id="2_43358"]
 [ext_resource type="Texture2D" uid="uid://bfmk2nspjff8u" path="res://assets/img/sprites/smoke.png" id="3_1x248"]
 [ext_resource type="Texture2D" uid="uid://ccfako5auwenx" path="res://assets/img/sprites/fire.png" id="3_en0n2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1mbow"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hwbiv"]
 atlas = ExtResource("3_en0n2")
@@ -273,8 +275,14 @@ animations = [{
 "speed": 20.0
 }]
 
-[node name="Tree" type="Node2D"]
+[node name="Tree" type="RigidBody2D"]
+gravity_scale = 0.0
+contact_monitor = true
 script = ExtResource("1_ladh1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_1mbow")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -285,12 +293,14 @@ region_rect = Rect2(34, 55, 12, 12)
 
 [node name="Fire" type="AnimatedSprite2D" parent="Sprite2D"]
 visible = false
+texture_filter = 1
 position = Vector2(0, -13)
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_h7ayp")
 
 [node name="Smoke" type="AnimatedSprite2D" parent="Sprite2D"]
 visible = false
+texture_filter = 1
 position = Vector2(0, -10)
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_tku41")

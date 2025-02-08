@@ -1,7 +1,10 @@
 extends Node
 
+const fireball = preload("res://scenes/fireball/fireball.tscn")
+
 var game_active = false
 var level = 0
+var fireball_instance
 
 
 func _process(_delta: float):
@@ -26,3 +29,14 @@ func new_level():
 
   $Map.despawn_trees()
   $Map.spawn_trees()
+
+  var target_tree = $Map.trees[randi() % $Map.trees.size()]
+
+  if fireball_instance:
+    fireball_instance.queue_free()
+
+  fireball_instance = fireball.instantiate()
+
+  fireball_instance.target = target_tree
+  
+  add_child(fireball_instance)

@@ -2,7 +2,7 @@ extends Node
 
 const tree = preload("res://scenes/tree/tree.tscn")
 
-var trees = []
+@export var trees = []
 
 
 func _ready() -> void:
