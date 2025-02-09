@@ -29,6 +29,9 @@ func end_game():
   game_active = false
   fireball_instance.queue_free()
 
+  for tree in $Map.get_trees():
+    tree.queue_free()
+
 
 func new_level():
   level += 1
@@ -50,11 +53,19 @@ func new_level():
     if target:
       target.burning = true
 
-    var trees = $Map.get_trees(target)
+    var pure_trees = $Map.get_trees(func(child):
+      return not child.burning and not child.extinguished and (child != target)  
+    )
+    var extinguished_trees = $Map.get_trees(func(child):
+      return child.extinguished == true
+    )
     
-    if trees.size() >= 1:
-      var new_target = trees.pick_random()
+    if pure_trees.size() >= 1:
+      var new_target = pure_trees.pick_random()
       fireball_instance.target = new_target
+    elif extinguished_trees.size() >= 1:
+      for tree in extinguished_trees:
+        tree.extinguished = false
     else:
       end_game()
   )

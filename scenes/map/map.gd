@@ -25,11 +25,11 @@ func despawn_trees():
 		tree_instance.queue_free()
 
 
-func get_trees(excluded: Area2D = null):
+func get_trees(predicate: Callable = func(child: Node): return is_instance_valid(child) and child.burning == false):
 	var trees = []
 
 	for child in $Trees.get_children():
-		if not child.burning and not child.extinguished and (child != excluded):
-			trees.append(child)
+		if predicate.call(child):
+				trees.append(child)
 
 	return trees

@@ -5,7 +5,24 @@ extends Area2D
 		burning = value
 		update_burning()
 
-@export var extinguished := false
+@export var extinguished := false:
+	set(value):
+		burning = false
+
+		if value:
+			$Sprite2D/Water.show()
+			$Sprite2D/Water.play()
+
+			smoke().timeout.connect(func():
+				$Sprite2D/Smoke.stop()
+
+				get_tree().create_timer(0.15).timeout.connect(func():
+					extinguished = false
+				)
+			)
+		else:
+			$Sprite2D/Water.stop()
+			$Sprite2D/Water.hide()
 
 signal perishing
 
@@ -17,7 +34,11 @@ func _ready() -> void:
 
 	mouse_entered.connect(func():
 		if burning:
-			extinguish()
+			extinguished = true
+	)
+
+	$Sprite2D/Water.animation_finished.connect(func():
+		$Sprite2D/Water.hide()
 	)
 
 
@@ -37,10 +58,16 @@ func update_burning():
 
 
 func smoke():
-	$Sprite2D/Smoke.visible = true
+	$Sprite2D/Smoke.show()
 	$Sprite2D/Smoke.play()
 
-	return get_tree().create_timer(0.15)
+	var timer = get_tree().create_timer(0.15)
+
+	timer.timeout.connect(func():
+		$Sprite2D/Smoke.hide()	
+	)
+
+	return timer
 
 
 func perish():
@@ -57,10 +84,3 @@ func perish():
 		tween.play()
 	)
 
-
-func extinguish():
-	burning = false
-
-	smoke().timeout.connect(func():
-		extinguished = true
-	)
