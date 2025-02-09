@@ -25,8 +25,6 @@ func chase_target():
 	var tree_size = target.find_child("Sprite2D").get_rect().size
 	var target_position = target.position - Vector2(0, tree_size.y)
 
-	print(speed)
-
 	var tween = create_tween()
 	tween.tween_property($".", "position", target_position, ((target_position - position).length() / (200 * speed)))
 	tween.tween_callback(func():

@@ -34,9 +34,6 @@ func end_game():
   $GameOverScreen/VBoxContainer/Score.text = "SCORE: " + str(round(Time.get_unix_time_from_system() - game_started))
   $GameOverScreen.show()
 
-  for tree in $Map.get_trees():
-    tree.queue_free()
-
 
 func new_level():
   level += 1
@@ -55,6 +52,13 @@ func new_level():
     if !is_instance_valid(tree):
       tree = null
     
+    var pure_trees = $Map.get_trees(func(child):
+      return not child.burning and not child.extinguished and (child != tree)  
+    )
+    
+    if pure_trees.size() == 0:
+      end_game()
+    
     tree.burning = true
   )
 
@@ -63,14 +67,12 @@ func new_level():
       target = null
 
     var pure_trees = $Map.get_trees(func(child):
-      return not child.burning and not child.extinguished and (child != target)  
+      return not child.burning and (child != target)  
     )
     
     if pure_trees.size() >= 1:
       var new_target = pure_trees.pick_random()
       fireball_instance.target = new_target
-    else:
-      end_game()
   )
 
   fireball_instance.target = $Map.get_trees().pick_random()

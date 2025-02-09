@@ -25,7 +25,7 @@ func despawn_trees():
 		tree_instance.queue_free()
 
 
-func get_trees(predicate: Callable = func(child: Node): return is_instance_valid(child) and child.burning == false):
+func get_trees(predicate: Callable = func(child: Node): return is_instance_valid(child)):
 	var trees = []
 
 	for child in $Trees.get_children():
