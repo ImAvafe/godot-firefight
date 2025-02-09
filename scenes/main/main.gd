@@ -21,6 +21,14 @@ func _process(_delta: float):
       reset_game()
     elif not game_active:
       start_game()
+  
+  if game_active:
+    var pure_trees = $Map.get_trees(func(child):
+      return not child.burning 
+    )
+      
+    if pure_trees.size() == 0:
+      end_game()
 
 
 func start_game():
@@ -56,6 +64,7 @@ func reset_game():
 
   $TitleScreen.show()
   $GameOverScreen.hide()
+  $GameOverScreen/GameOverSound.stop()
 
 
 func new_level():
@@ -86,9 +95,9 @@ func new_level():
       
       if pure_trees.size() >= 1:
         var new_target = pure_trees.pick_random()
-        fireball_instance.target = new_target
-      elif pure_trees.size() == 0:
-        end_game()
+
+        if is_instance_valid(fireball_instance):
+          fireball_instance.target = new_target
     )
   )
 
