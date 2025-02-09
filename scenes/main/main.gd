@@ -23,9 +23,7 @@ func _process(_delta: float):
       start_game()
   
   if game_active:
-    var pure_trees = $Map.get_trees(func(child):
-      return not child.burning 
-    )
+    var pure_trees = $Map.get_trees()
       
     if pure_trees.size() == 0:
       end_game()
@@ -90,7 +88,7 @@ func new_level():
   fireball_instance.hit_target.connect(func(target):
     get_tree().create_timer(0.1).timeout.connect(func():
       var pure_trees = $Map.get_trees(func(child):
-        return not child.burning and (child != target)  
+        return not child.burning and (child != target)
       )
       
       if pure_trees.size() >= 1:

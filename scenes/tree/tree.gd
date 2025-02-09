@@ -1,5 +1,7 @@
 extends Area2D
 
+var last_extinguished = 0
+
 @export var burning: bool:
 	set(value):
 		burning = value
@@ -7,6 +9,12 @@ extends Area2D
 
 @export var extinguished := false:
 	set(value):
+		if value and ((Time.get_unix_time_from_system() - last_extinguished) < 0.25):
+			perish()
+			return
+
+		last_extinguished = Time.get_unix_time_from_system()
+
 		extinguished = value
 		burning = false
 		update_extinguished()
