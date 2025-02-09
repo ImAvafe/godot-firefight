@@ -511,7 +511,7 @@ region_rect = Rect2(0, 1920, 64, 64)
 [node name="Fire" type="AnimatedSprite2D" parent="Sprite2D"]
 visible = false
 texture_filter = 1
-position = Vector2(0, -17)
+position = Vector2(0, -16)
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_h7ayp")
 offset = Vector2(0, -16)
