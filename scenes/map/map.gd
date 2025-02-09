@@ -2,8 +2,6 @@ extends Node
 
 const tree = preload("res://scenes/tree/tree.tscn")
 
-@export var trees = []
-
 
 func _ready() -> void:
 	$TreesSpawners.hide()
@@ -21,20 +19,17 @@ func spawn_trees():
 		tree_instance.position = global_pos
 		$Trees.add_child(tree_instance)
 
-		trees.append(tree_instance)
-
 
 func despawn_trees():
-	for tree_instance in trees:
+	for tree_instance in get_trees():
 		tree_instance.queue_free()
 
-	trees = []
 
-
-func get_trees():
-	var trees2 = []
+func get_trees(excluded: Area2D = null):
+	var trees = []
 
 	for child in $Trees.get_children():
-		trees2.append(child)
+		if not child.burning and (child != excluded):
+			trees.append(child)
 
-	return trees2
+	return trees

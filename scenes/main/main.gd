@@ -22,6 +22,7 @@ func start_game():
 
 func end_game():
   game_active = false
+  fireball_instance.queue_free()
 
 
 func new_level():
@@ -30,15 +31,27 @@ func new_level():
   $Map.despawn_trees()
   $Map.spawn_trees()
 
-  if fireball_instance:
+  if is_instance_valid(fireball_instance):
     fireball_instance.queue_free()
 
   fireball_instance = fireball.instantiate()
 
-  fireball_instance.hit_target.connect(func():
-    fireball_instance.target = $Map.get_trees().pick_random()
+  add_child(fireball_instance)
+
+  fireball_instance.hit_target.connect(func(target):
+    if !is_instance_valid(target):
+      target = null
+
+    if target:
+      target.burning = true
+
+    var trees = $Map.get_trees(target)
+    
+    if trees.size() >= 1:
+      var new_target = trees.pick_random()
+      fireball_instance.target = new_target
+    else:
+      end_game()
   )
 
   fireball_instance.target = $Map.get_trees().pick_random()
-  
-  add_child(fireball_instance)

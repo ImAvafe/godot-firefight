@@ -5,6 +5,8 @@ extends Area2D
 		burning = value
 		update_burning()
 
+signal perishing
+
 
 func _ready() -> void:
 	$BurnTimer.timeout.connect(func():
@@ -35,6 +37,8 @@ func smoke():
 
 
 func perish():
+	perishing.emit()
+
 	burning = false
 
 	smoke().timeout.connect(func():
