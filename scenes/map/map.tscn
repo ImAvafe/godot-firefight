@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=4 uid="uid://brhu6j8ggn773"]
+[gd_scene load_steps=9 format=4 uid="uid://brhu6j8ggn773"]
 
 [ext_resource type="Script" path="res://scenes/map/map.gd" id="1_c70pt"]
 [ext_resource type="Texture2D" uid="uid://biqu61wkn817x" path="res://assets/img/tiles/map.png" id="1_dsojl"]
+[ext_resource type="FontFile" uid="uid://djy8r0s2tflxu" path="res://assets/fonts/tiny_5.ttf" id="4_pkoie"]
 [ext_resource type="PackedScene" uid="uid://caefhs80wkbsg" path="res://scenes/tree_spawner/tree_spawner.tscn" id="4_xy2ia"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ctmoe"]
@@ -942,6 +943,23 @@ tile_map_data = PackedByteArray("AAAEAAQAAQAAAAAAAQAEAAUAAQAAAAAAAQAEAAYAAQAAAAA
 tile_set = SubResource("TileSet_rmmvy")
 
 [node name="Trees" type="TileMapLayer" parent="."]
+
+[node name="Score" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -89.5
+offset_top = -84.0
+offset_right = 89.5
+offset_bottom = -26.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("4_pkoie")
+theme_override_font_sizes/font_size = 48
+text = "SCORE: 0"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1

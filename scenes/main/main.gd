@@ -11,7 +11,8 @@ var fireball_instance
 func _process(_delta: float):
   if is_instance_valid(fireball_instance):
     var speed: float = 1 + ((Time.get_unix_time_from_system() - game_started) / 40)
-    $Map/ColorRect.color = Color(255, 0, 0, clamp((speed - 1) / 5, 0, 0.3))
+    $Map/ColorRect.color = Color(255, 0, 0, clamp((speed - 1) / 15, 0, 0.3))
+    $Map/Score.text = "SCORE: " + str(round(Time.get_unix_time_from_system() - game_started))
     fireball_instance.speed = speed
 
   if Input.is_action_just_pressed("start_game"):
@@ -25,6 +26,7 @@ func start_game():
   level = 0
 
   $GameOverScreen.hide()
+  $Map/Map/Score.show()
 
   new_level()
 
@@ -35,6 +37,7 @@ func end_game():
 
   $GameOverScreen/VBoxContainer/Score.text = "SCORE: " + str(round(Time.get_unix_time_from_system() - game_started))
   $GameOverScreen.show()
+  $Map/Map/Score.hide()
 
 
 func new_level():

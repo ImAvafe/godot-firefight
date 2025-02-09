@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://r7nyttqfrgxa"]
+[gd_scene load_steps=2 format=3 uid="uid://r7nyttqfrgxa"]
+
+[ext_resource type="FontFile" uid="uid://djy8r0s2tflxu" path="res://assets/fonts/tiny_5.ttf" id="1_31qiv"]
 
 [node name="GameOverScreen" type="Control"]
 layout_mode = 3
@@ -15,7 +17,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.333333)
+color = Color(1, 0, 0, 0.333333)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -34,12 +36,14 @@ theme_override_constants/separation = 64
 
 [node name="Title" type="Label" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("1_31qiv")
 theme_override_font_sizes/font_size = 64
 text = "GAME OVER"
 horizontal_alignment = 1
 
 [node name="Score" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 64
+theme_override_fonts/font = ExtResource("1_31qiv")
+theme_override_font_sizes/font_size = 48
 text = "SCORE: 0"
 horizontal_alignment = 1
