@@ -26,7 +26,7 @@ func chase_target():
 	var target_position = target.position - Vector2(0, tree_size.y)
 
 	var tween = create_tween()
-	tween.tween_property($".", "position", target_position, ((target_position - position).length() / (-3000 * speed)))
+	tween.tween_property($".", "position", target_position, ((target_position - position).length() / (300 * speed)))
 	tween.tween_callback(func():
 		hit_target.emit(target)
 	)

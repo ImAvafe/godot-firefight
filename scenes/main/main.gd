@@ -23,7 +23,9 @@ func _process(_delta: float):
       start_game()
   
   if game_active:
-    var pure_trees = $Map.get_trees()
+    var pure_trees = $Map.get_trees(func(child):
+      return not child.burning 
+    )
       
     if pure_trees.size() == 0:
       end_game()
