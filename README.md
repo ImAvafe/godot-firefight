@@ -1,8 +1,3 @@
 # Firefight 🧯
 
-A small Godot 2D demo, where you play top-down trying to save the forest from fire.
-
-# Steps
-
-## Map
-
+My first Godot game. A small demo where you play top-down trying to save a forest from fire.
