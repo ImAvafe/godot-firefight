@@ -4,14 +4,14 @@ const fireball = preload("res://scenes/fireball/fireball.tscn")
 
 var game_active = false
 var game_over = false
-var game_started = null
+var game_started = 0
 var level = 0
 var fireball_instance
 
 
 func _process(_delta: float):
   if is_instance_valid(fireball_instance):
-    var speed: float = 1 + ((Time.get_unix_time_from_system() - game_started) / 40)
+    var speed: float = 1 + (log(Time.get_unix_time_from_system() - game_started) / 1.75)
     $Map/ColorRect.color = Color(255, 0, 0, clamp((speed - 1) / 15, 0, 0.3))
     $Map/Score.text = "SCORE: " + str(round(Time.get_unix_time_from_system() - game_started))
     fireball_instance.speed = speed
