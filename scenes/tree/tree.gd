@@ -5,12 +5,19 @@ extends Area2D
 		burning = value
 		update_burning()
 
+@export var extinguished := false
+
 signal perishing
 
 
 func _ready() -> void:
 	$BurnTimer.timeout.connect(func():
 		perish()
+	)
+
+	mouse_entered.connect(func():
+		if burning:
+			extinguish()
 	)
 
 
@@ -55,5 +62,5 @@ func extinguish():
 	burning = false
 
 	smoke().timeout.connect(func():
-		pass
+		extinguished = true
 	)

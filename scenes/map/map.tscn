@@ -776,6 +776,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 script = ExtResource("1_c70pt")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -785,6 +786,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 color = Color(0.329412, 0.827451, 0.968627, 1)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]

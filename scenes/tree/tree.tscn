@@ -304,5 +304,5 @@ scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_tku41")
 
 [node name="BurnTimer" type="Timer" parent="."]
-wait_time = 0.75
+wait_time = 2.0
 one_shot = true

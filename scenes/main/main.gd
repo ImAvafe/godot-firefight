@@ -3,11 +3,15 @@ extends Node
 const fireball = preload("res://scenes/fireball/fireball.tscn")
 
 var game_active = false
+var game_started = null
 var level = 0
 var fireball_instance
 
 
 func _process(_delta: float):
+  if is_instance_valid(fireball_instance):
+    fireball_instance.speed = 1 + ((Time.get_unix_time_from_system() - game_started) / 25)
+
   if Input.is_action_just_pressed("start_game"):
     if not game_active:
       start_game()
@@ -15,6 +19,7 @@ func _process(_delta: float):
 
 func start_game():
   game_active = true
+  game_started = Time.get_unix_time_from_system()
   level = 0
 
   new_level()

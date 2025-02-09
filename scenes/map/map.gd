@@ -29,7 +29,7 @@ func get_trees(excluded: Area2D = null):
 	var trees = []
 
 	for child in $Trees.get_children():
-		if not child.burning and (child != excluded):
+		if not child.burning and not child.extinguished and (child != excluded):
 			trees.append(child)
 
 	return trees

@@ -5,6 +5,8 @@ extends Area2D
 		target = value
 		chase_target()
 
+@export var speed = 1
+
 signal hit_target
 
 
@@ -17,7 +19,7 @@ func chase_target():
 	var target_position = target.position - Vector2(0, tree_size.y)
 
 	var tween = create_tween()
-	tween.tween_property($".", "position", target_position, ((target_position - position).length() / 1000))
+	tween.tween_property($".", "position", target_position, ((target_position - position).length() / (300 * speed)))
 	tween.tween_callback(func():
 		hit_target.emit(target)
 	)
