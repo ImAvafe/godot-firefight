@@ -1,7 +1,7 @@
 [gd_scene load_steps=78 format=3 uid="uid://dr7g74p2evpqv"]
 
 [ext_resource type="Script" path="res://scenes/tree/tree.gd" id="1_ladh1"]
-[ext_resource type="Texture2D" uid="uid://iptcxmal3cfy" path="res://assets/img/sprites/trees.png" id="2_43358"]
+[ext_resource type="Texture2D" uid="uid://biqu61wkn817x" path="res://assets/img/tiles/map.png" id="2_dtjvu"]
 [ext_resource type="Texture2D" uid="uid://bfmk2nspjff8u" path="res://assets/img/sprites/smoke.png" id="3_1x248"]
 [ext_resource type="Texture2D" uid="uid://ccfako5auwenx" path="res://assets/img/sprites/fire.png" id="3_en0n2"]
 [ext_resource type="Texture2D" uid="uid://j0j2ffn5xa5f" path="res://assets/img/sprites/water.png" id="4_cef5t"]
@@ -504,31 +504,30 @@ scale = Vector2(3, 3)
 shape = SubResource("RectangleShape2D_1mbow")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture_filter = 1
-scale = Vector2(4, 4)
-texture = ExtResource("2_43358")
+texture = ExtResource("2_dtjvu")
 region_enabled = true
-region_rect = Rect2(34, 55, 12, 12)
+region_rect = Rect2(0, 1920, 64, 64)
 
 [node name="Fire" type="AnimatedSprite2D" parent="Sprite2D"]
 visible = false
 texture_filter = 1
-position = Vector2(0, -13)
-scale = Vector2(0.4, 0.4)
+position = Vector2(0, -17)
+scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_h7ayp")
+offset = Vector2(0, -16)
 
 [node name="Smoke" type="AnimatedSprite2D" parent="Sprite2D"]
 visible = false
 texture_filter = 1
-position = Vector2(0, -10)
-scale = Vector2(0.4, 0.4)
+position = Vector2(0, -28)
+scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_tku41")
 
 [node name="Water" type="AnimatedSprite2D" parent="Sprite2D"]
 visible = false
 texture_filter = 1
 position = Vector2(0.25, 2.98023e-08)
-scale = Vector2(0.5, 0.5)
+scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_1q4kt")
 frame = 29
 frame_progress = 1.0
