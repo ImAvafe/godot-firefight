@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://r7nyttqfrgxa"]
+[gd_scene load_steps=3 format=3 uid="uid://r7nyttqfrgxa"]
 
 [ext_resource type="FontFile" uid="uid://djy8r0s2tflxu" path="res://assets/fonts/tiny_5.ttf" id="1_31qiv"]
+[ext_resource type="AudioStream" uid="uid://bru0tek3seghv" path="res://assets/sfx/game_over.mp3" id="2_1cigf"]
 
 [node name="GameOverScreen" type="Control"]
 layout_mode = 3
@@ -47,3 +48,7 @@ theme_override_fonts/font = ExtResource("1_31qiv")
 theme_override_font_sizes/font_size = 48
 text = "SCORE: 0"
 horizontal_alignment = 1
+
+[node name="GameOverSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_1cigf")
+volume_db = 5.0

@@ -44,6 +44,7 @@ func end_game():
 
   $GameOverScreen/VBoxContainer/Score.text = "SCORE: " + str(round(Time.get_unix_time_from_system() - game_started))
   $GameOverScreen.show()
+  $GameOverScreen/GameOverSound.play()
   $Map/Score.hide()
 
 

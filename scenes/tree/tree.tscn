@@ -539,7 +539,9 @@ one_shot = true
 
 [node name="SizzleSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_wuaml")
+volume_db = -5.0
 pitch_scale = 2.0
 
 [node name="FireLightSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_q6r1o")
+stream_paused = true
