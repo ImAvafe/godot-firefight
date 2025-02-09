@@ -57,9 +57,9 @@ func update_extinguished():
 		smoke().timeout.connect(func():
 			$Sprite2D/Smoke.stop()
 
-			# get_tree().create_timer(0.15).timeout.connect(func():
-			# 	extinguished = false
-			# )
+			get_tree().create_timer(0.15).timeout.connect(func():
+				extinguished = false
+			)
 		)
 	else:
 		$Sprite2D/Water.stop()

@@ -146,7 +146,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hduc7"]
-size = Vector2(32, 48)
+size = Vector2(32, 32)
 
 [node name="Fireball" type="Area2D"]
 collision_layer = 2
@@ -160,7 +160,8 @@ sprite_frames = SubResource("SpriteFrames_3fkyb")
 frame_progress = 0.459227
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(2, 2)
+position = Vector2(0, 32)
+scale = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_hduc7")
 
 [node name="FireCrackle" type="AudioStreamPlayer" parent="."]
