@@ -1,10 +1,12 @@
-[gd_scene load_steps=76 format=3 uid="uid://dr7g74p2evpqv"]
+[gd_scene load_steps=78 format=3 uid="uid://dr7g74p2evpqv"]
 
 [ext_resource type="Script" path="res://scenes/tree/tree.gd" id="1_ladh1"]
 [ext_resource type="Texture2D" uid="uid://iptcxmal3cfy" path="res://assets/img/sprites/trees.png" id="2_43358"]
 [ext_resource type="Texture2D" uid="uid://bfmk2nspjff8u" path="res://assets/img/sprites/smoke.png" id="3_1x248"]
 [ext_resource type="Texture2D" uid="uid://ccfako5auwenx" path="res://assets/img/sprites/fire.png" id="3_en0n2"]
 [ext_resource type="Texture2D" uid="uid://j0j2ffn5xa5f" path="res://assets/img/sprites/water.png" id="4_cef5t"]
+[ext_resource type="AudioStream" uid="uid://boxmq6tb1004m" path="res://assets/sfx/sizzle.mp3" id="6_wuaml"]
+[ext_resource type="AudioStream" uid="uid://bsrupaldworup" path="res://assets/sfx/fire_light.mp3" id="7_q6r1o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1mbow"]
 
@@ -535,3 +537,10 @@ speed_scale = 2.0
 [node name="BurnTimer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
+
+[node name="SizzleSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_wuaml")
+pitch_scale = 2.0
+
+[node name="FireLightSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_q6r1o")

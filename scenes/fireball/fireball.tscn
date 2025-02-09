@@ -1,7 +1,8 @@
-[gd_scene load_steps=24 format=3 uid="uid://bg6yvklng14km"]
+[gd_scene load_steps=25 format=3 uid="uid://bg6yvklng14km"]
 
 [ext_resource type="Texture2D" uid="uid://ccfako5auwenx" path="res://assets/img/sprites/fire.png" id="1_dw8nm"]
 [ext_resource type="Script" path="res://scenes/fireball/fireball.gd" id="1_p6x0p"]
+[ext_resource type="AudioStream" uid="uid://cc5y7oobjysui" path="res://assets/sfx/fire_crackle.mp3" id="3_wq0hj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_737n8"]
 atlas = ExtResource("1_dw8nm")
@@ -161,3 +162,10 @@ frame_progress = 0.459227
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_hduc7")
+
+[node name="FireCrackle" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_wq0hj")
+volume_db = -5.0
+pitch_scale = 2.0
+autoplay = true
+parameters/looping = true

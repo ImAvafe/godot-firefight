@@ -7,22 +7,10 @@ extends Area2D
 
 @export var extinguished := false:
 	set(value):
+		extinguished = value
 		burning = false
+		update_extinguished()
 
-		if value:
-			$Sprite2D/Water.show()
-			$Sprite2D/Water.play()
-
-			smoke().timeout.connect(func():
-				$Sprite2D/Smoke.stop()
-
-				get_tree().create_timer(0.15).timeout.connect(func():
-					extinguished = false
-				)
-			)
-		else:
-			$Sprite2D/Water.stop()
-			$Sprite2D/Water.hide()
 
 signal perishing
 
@@ -52,9 +40,30 @@ func update_burning():
 	if burning:
 		$BurnTimer.start()
 		$Sprite2D/Fire.play()
+
+		$FireLightSound.play()
 	else:
 		$BurnTimer.stop()
 		$Sprite2D/Fire.stop()
+
+
+func update_extinguished():
+	if extinguished:
+		$SizzleSound.play()
+
+		$Sprite2D/Water.show()
+		$Sprite2D/Water.play()
+
+		smoke().timeout.connect(func():
+			$Sprite2D/Smoke.stop()
+
+			# get_tree().create_timer(0.15).timeout.connect(func():
+			# 	extinguished = false
+			# )
+		)
+	else:
+		$Sprite2D/Water.stop()
+		$Sprite2D/Water.hide()
 
 
 func smoke():
