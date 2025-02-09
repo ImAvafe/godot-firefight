@@ -544,4 +544,3 @@ pitch_scale = 2.0
 
 [node name="FireLightSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_q6r1o")
-stream_paused = true
