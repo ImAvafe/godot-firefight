@@ -19,7 +19,7 @@ func _process(_delta: float):
   if Input.is_action_just_pressed("start_game"):
     if game_over:
       reset_game()
-    else:
+    elif not game_active:
       start_game()
 
 
@@ -74,13 +74,6 @@ func new_level():
     if !is_instance_valid(tree):
       tree = null
     
-    var pure_trees = $Map.get_trees(func(child):
-      return not child.burning and not child.extinguished and (child != tree)  
-    )
-    
-    if pure_trees.size() == 0:
-      end_game()
-    
     tree.burning = true
   )
 
@@ -95,6 +88,8 @@ func new_level():
     if pure_trees.size() >= 1:
       var new_target = pure_trees.pick_random()
       fireball_instance.target = new_target
+    elif pure_trees.size() == 0:
+      end_game()
   )
 
   fireball_instance.target = $Map.get_trees().pick_random()
