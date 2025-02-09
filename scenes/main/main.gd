@@ -88,9 +88,14 @@ func new_level():
   fireball_instance.hit_target.connect(func(target):
     get_tree().create_timer(0.1).timeout.connect(func():
       var pure_trees = $Map.get_trees(func(child):
-        return not child.burning and (child != target)
+        if child.burning:
+          return false
+        elif target and child == target:
+          return false
+        else:
+          return true
       )
-      
+
       if pure_trees.size() >= 1:
         var new_target = pure_trees.pick_random()
 
