@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://brwm3ja40leda"]
+[gd_scene load_steps=5 format=3 uid="uid://brwm3ja40leda"]
 
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_74fet"]
 [ext_resource type="PackedScene" uid="uid://brhu6j8ggn773" path="res://scenes/map/map.tscn" id="2_5sdgu"]
 [ext_resource type="PackedScene" uid="uid://r7nyttqfrgxa" path="res://scenes/game_over_screen/game_over_screen.tscn" id="3_jldg0"]
+[ext_resource type="PackedScene" uid="uid://daxybd2l6ty2f" path="res://scenes/title_screen/title_screen.tscn" id="4_sawkp"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_74fet")
@@ -11,3 +12,5 @@ script = ExtResource("1_74fet")
 
 [node name="GameOverScreen" parent="." instance=ExtResource("3_jldg0")]
 visible = false
+
+[node name="TitleScreen" parent="." instance=ExtResource("4_sawkp")]

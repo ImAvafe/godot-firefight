@@ -945,6 +945,7 @@ tile_set = SubResource("TileSet_rmmvy")
 [node name="Trees" type="TileMapLayer" parent="."]
 
 [node name="Score" type="Label" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5

@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://r7nyttqfrgxa"]
+[gd_scene load_steps=2 format=3 uid="uid://daxybd2l6ty2f"]
 
-[ext_resource type="FontFile" uid="uid://djy8r0s2tflxu" path="res://assets/fonts/tiny_5.ttf" id="1_31qiv"]
+[ext_resource type="FontFile" uid="uid://djy8r0s2tflxu" path="res://assets/fonts/tiny_5.ttf" id="1_bfa5g"]
 
-[node name="GameOverScreen" type="Control"]
+[node name="TitleScreen" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -17,7 +17,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.685733, 3.10443e-06, 5.77569e-07, 0.501961)
+color = Color(0, 0, 0, 0.501961)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -36,14 +36,14 @@ theme_override_constants/separation = 64
 
 [node name="Title" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_31qiv")
-theme_override_font_sizes/font_size = 64
-text = "GAME OVER"
+theme_override_fonts/font = ExtResource("1_bfa5g")
+theme_override_font_sizes/font_size = 80
+text = "FIREFIGHT"
 horizontal_alignment = 1
 
 [node name="Score" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_31qiv")
+theme_override_fonts/font = ExtResource("1_bfa5g")
 theme_override_font_sizes/font_size = 48
-text = "SCORE: 0"
+text = "TAP TO START"
 horizontal_alignment = 1
