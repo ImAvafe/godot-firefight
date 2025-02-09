@@ -10,7 +10,9 @@ var fireball_instance
 
 func _process(_delta: float):
   if is_instance_valid(fireball_instance):
-    fireball_instance.speed = 1 + ((Time.get_unix_time_from_system() - game_started) / 40)
+    var speed: float = 1 + ((Time.get_unix_time_from_system() - game_started) / 40)
+    $Map/ColorRect.color = Color(255, 0, 0, clamp((speed - 1) / 5, 0, 0.3))
+    fireball_instance.speed = speed
 
   if Input.is_action_just_pressed("start_game"):
     if not game_active:
