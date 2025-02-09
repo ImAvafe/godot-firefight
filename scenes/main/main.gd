@@ -22,12 +22,17 @@ func start_game():
   game_started = Time.get_unix_time_from_system()
   level = 0
 
+  $GameOverScreen.hide()
+
   new_level()
 
 
 func end_game():
   game_active = false
   fireball_instance.queue_free()
+
+  $GameOverScreen/VBoxContainer/Score.text = "SCORE: " + str(round(Time.get_unix_time_from_system() - game_started))
+  $GameOverScreen.show()
 
   for tree in $Map.get_trees():
     tree.queue_free()
