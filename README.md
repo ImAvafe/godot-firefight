@@ -4,4 +4,6 @@ My first Godot project; a small game where you try to save your forest from an e
 
 Use this repo as a warning sign when writing your own game.
 
-Can we cancel object-oriented languages?
+https://github.com/user-attachments/assets/7b28d860-2ec5-484d-bf64-731649ef7225
+
+*Can we cancel object-oriented languages?*
