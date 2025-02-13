@@ -12,4 +12,9 @@ I made this in 2 days! Use my code as a warning sign when making your own game.
 
 ![Demo](https://github.com/user-attachments/assets/b116569a-a392-4063-abe4-9a516fc05ea5)
 
+## Credits
+
+- [Puny World](https://merchant-shade.itch.io/16x16-puny-world) by Merchant Shade
+- [Particle FX](https://ragnapixel.itch.io/particle-fx) by RagnaPixel
+
 *Can we cancel object-oriented languages?*
