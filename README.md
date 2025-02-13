@@ -10,6 +10,6 @@ I made this in 2 days! Use my code as a warning sign when making your own game.
 
 ---
 
-![Demo](https://github.com/user-attachments/assets/b116569a-a392-4063-abe4-9a516fc05ea5)
+https://github.com/user-attachments/assets/b116569a-a392-4063-abe4-9a516fc05ea5
 
 *Can we cancel object-oriented languages?*
