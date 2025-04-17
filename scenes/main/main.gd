@@ -11,7 +11,7 @@ var fireball_instance
 
 func _process(_delta: float):
   if is_instance_valid(fireball_instance):
-    var speed: float = 1 + (log(Time.get_unix_time_from_system() - game_started) / 1.75)
+    var speed: float = 1 + (log(Time.get_unix_time_from_system() - game_started) / 2)
     $Map/ColorRect.color = Color(255, 0, 0, clamp((speed - 1) / 15, 0, 0.3))
     $Map/Score.text = "SCORE: " + str(round(Time.get_unix_time_from_system() - game_started))
     fireball_instance.speed = speed
