@@ -1,16 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://brwm3ja40leda"]
+[gd_scene format=3 uid="uid://brwm3ja40leda"]
 
 [ext_resource type="Script" uid="uid://dpewmygov7yr6" path="res://scenes/main/main.gd" id="1_74fet"]
 [ext_resource type="PackedScene" uid="uid://brhu6j8ggn773" path="res://scenes/map/map.tscn" id="2_5sdgu"]
 [ext_resource type="PackedScene" uid="uid://r7nyttqfrgxa" path="res://scenes/game_over_screen/game_over_screen.tscn" id="3_jldg0"]
 [ext_resource type="PackedScene" uid="uid://daxybd2l6ty2f" path="res://scenes/title_screen/title_screen.tscn" id="4_sawkp"]
 
-[node name="Main" type="Node"]
+[node name="Main" type="Node" unique_id=1418598429]
 script = ExtResource("1_74fet")
 
-[node name="Map" parent="." instance=ExtResource("2_5sdgu")]
+[node name="Map" parent="." unique_id=987737988 instance=ExtResource("2_5sdgu")]
 
-[node name="GameOverScreen" parent="." instance=ExtResource("3_jldg0")]
+[node name="GameOverScreen" parent="." unique_id=363705832 instance=ExtResource("3_jldg0")]
 visible = false
 
-[node name="TitleScreen" parent="." instance=ExtResource("4_sawkp")]
+[node name="TitleScreen" parent="." unique_id=155260769 instance=ExtResource("4_sawkp")]
