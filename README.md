@@ -6,7 +6,7 @@ A mini-game where you try to save your forest from an ever-intensifying fire. Be
 
 [→ Play in-browser demo](https://imavafe.itch.io/firefight)
 
-# Setup
+## Installation
 
 * Terminal
 	* `git clone https://github.com/ImAvafe/godot-firefight`
@@ -15,7 +15,19 @@ A mini-game where you try to save your forest from an ever-intensifying fire. Be
 	* ▶️ Run Project
 	* 🔍 Explore!
 
-# Credits
+## Setup
+
+### Scene Structure
+
+<img width="2252" height="1340" alt="image" src="https://github.com/user-attachments/assets/9ba265ff-e865-4b1e-8e75-97170d6a6f3f" />
+
+### Codebase
+
+Scenes are stored in `/scenes`, each including a GDScript and scene file.
+
+The GDScript files have explanatory comments, and their functions are placed in descending order of execution.
+
+## Credits
 
 - [Puny World](https://merchant-shade.itch.io/16x16-puny-world) by Merchant Shade
 - [Particle FX](https://ragnapixel.itch.io/particle-fx) by RagnaPixel
