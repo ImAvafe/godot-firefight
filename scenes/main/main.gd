@@ -17,7 +17,7 @@ func spawn_fireball():
 	fireball_instance = fireball.instantiate()
 
 	# Parents fireball under main
-	add_child(fireball_instance)
+	$Map.add_child(fireball_instance)
 
 	# Burns trees on touch
 	fireball_instance.hit_tree.connect(func(tree):
